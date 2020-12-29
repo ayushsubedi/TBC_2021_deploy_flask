@@ -33,3 +33,15 @@ def train_model():
     model = model.fit(X_train, y_train)
     predictions = model.predict(X_test)
     return 'model was built sucessfully'
+
+@app.route('/get_features')
+def get_features():
+    carat = int(request.args.get("carat"))
+    cut = int(request.args.get("cut"))
+    color = int(request.args.get("color"))
+    clarity = int(request.args.get("clarity"))
+    x = int(request.args.get("x"))
+    y = int(request.args.get("y"))
+    z = int(request.args.get("z"))
+    return  {'carat': carat, 'cut':cut, 'color':color, 'clarity':clarity, 'x':x, 'y':y, 'z':z}, 200
+
