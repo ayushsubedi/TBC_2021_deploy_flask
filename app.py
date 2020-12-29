@@ -31,7 +31,6 @@ def train_model():
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=42)
     model= RandomForestRegressor()
     model = model.fit(X_train, y_train)
-    predictions = model.predict(X_test)
     return 'model was built sucessfully'
 
 @app.route('/get_features')
@@ -44,4 +43,5 @@ def get_features():
     y = int(request.args.get("y"))
     z = int(request.args.get("z"))
     return  {'carat': carat, 'cut':cut, 'color':color, 'clarity':clarity, 'x':x, 'y':y, 'z':z}, 200
+
 
