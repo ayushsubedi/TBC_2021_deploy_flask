@@ -9,7 +9,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return 'welcome to the homepage of BC ML deployment page. please know that noting is perfect here, and things needs to be improved.'
+    return '<html><body><title>bc</title>ml</body></html>'
+
+
+@app.route('/demo2021')
+def demo2021():
+    return 'happy new year'
+
 
 @app.route('/demo_api')
 def demo_api():
@@ -18,6 +24,35 @@ def demo_api():
     if (param1 is None or param2 is None):
         return 'params not received', 400
     return {'sum': param1+param2, 'mult': param1*param2, 'sub':abs(param1-param2)}, 200
+
+
+
+@app.route('/get_features')
+def get_features():
+    carat = request.args.get("carat")
+    cut = request.args.get("cut")
+    color = request.args.get("color")
+    clarity = request.args.get("clarity")
+    x = request.args.get("x")
+    y = request.args.get("y")
+    z = request.args.get("z")
+    return  {'carat': carat, 'cut':cut, 'color':color, 'clarity':clarity, 'x':x, 'y':y, 'z':z}, 200
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @app.route('/train_model')
 def train_model():
@@ -33,15 +68,6 @@ def train_model():
     model = model.fit(X_train, y_train)
     return 'model was built sucessfully'
 
-@app.route('/get_features')
-def get_features():
-    carat = int(request.args.get("carat"))
-    cut = int(request.args.get("cut"))
-    color = int(request.args.get("color"))
-    clarity = int(request.args.get("clarity"))
-    x = int(request.args.get("x"))
-    y = int(request.args.get("y"))
-    z = int(request.args.get("z"))
-    return  {'carat': carat, 'cut':cut, 'color':color, 'clarity':clarity, 'x':x, 'y':y, 'z':z}, 200
+
 
 
