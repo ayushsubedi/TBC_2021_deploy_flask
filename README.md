@@ -3,7 +3,7 @@
 
 #### Clone the repository
 
-`https://github.com/ayushsubedi/deploy_diamond_regression_BC`
+`https://github.com/ayushsubedi/TBC_2021_deploy_flask`
 
 
 #### CD into the cloned directory and create a virtualenv
